@@ -5,7 +5,7 @@
 </div>
 
 ## Script Description
-This script is designed to set a static IP address on a Linux system that uses NetworkManager for managing network interfaces.<br />
+This script is designed to set a static IP address on a Linux system that uses NetworkManager for managing network interfaces.<br /><br />
 Program designed, developed, and tested while at university studying Computer Science for module "Managing a Web Server (maws_h16s35)"<br />
 
 Program Version: 24.9.17.83<br />
