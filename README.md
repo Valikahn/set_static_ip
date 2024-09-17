@@ -23,7 +23,7 @@ Author:  Neil Jamieson (Valikahn)<br />
 * Ubuntu 24.04.x (Noble Numbat)
 
 ## Features and Components
-Setup and Initialisation
+***Setup and Initialisation***
 * Clears the terminal (```clear```) and sets the default text editor to ```nano```.
 * Defines several color variables to format output messages (e.g., bold text, colored text).
 
