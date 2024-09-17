@@ -28,38 +28,38 @@ Setup and Initialisation
 * Defines several color variables to format output messages (e.g., bold text, colored text).
 
 ***Root Privileges Check***
-* The function CHECK_SUDO ensures the script is being executed with root privileges. If not, it exits with an error code (126).
+* The function ```CHECK_SUDO``` ensures the script is being executed with root privileges. If not, it exits with an error code (126).
 
 ***IP Address Validation***
-* The VALID_IP_ADDRESS function checks whether a given string is a valid IPv4 address.
+* The ```VALID_IP_ADDRESS``` function checks whether a given string is a valid IPv4 address.
 
 ***Confirmation Prompt***
-* CONFIRM_YES_NO asks the user for confirmation before proceeding, ensuring that they explicitly agree to continue.
+* ```CONFIRM_YES_NO``` asks the user for confirmation before proceeding, ensuring that they explicitly agree to continue.
 
 ***User Input Collection***
 The script asks for several network settings:
-* Static IP address (STATIC_IP)
-* Default gateway (GATEWAY)
+* Static IP address (```STATIC_IP```)
+* Default gateway (```GATEWAY```)
 * DNS servers (entered as a comma-separated list)
-* Subnet mask in CIDR notation (e.g., 24 for 255.255.255.0)
+* Subnet mask in CIDR notation (e.g., 24 for ```255.255.255.0```)
 * Each input is validated to ensure correct IP format.
 
 ***Display Settings for Confirmation***
-* The gathered data (IP address, subnet mask, gateway, DNS servers, and network interface) is displayed to the user for review and confirmation.
+* The gathered data (IP address, subnet mask, gateway, DNS servers, and network interface) is completed using NMCLI and stored into variables; this display's to the user for review and confirmation.
 
 ***System Configuration Steps***
 The script proceeds with several system configuration tasks:
-* Update System and Install NetworkManager: Installs network-manager if it is not already installed.
+* Update System and Install NetworkManager: Installs ```network-manager``` if it is not already installed.
 * Disable Systemd-Networkd-Wait Service: Disables the service that waits for network connectivity during boot.
 * Edit Globally Managed Devices: Modifies the NetworkManager configuration to manage specific device types like Wi-Fi and Ethernet.
-* Edit NetworkManager Configuration: Ensures that NetworkManager is set to manage interfaces previously managed by ifupdown.
+* Edit NetworkManager Configuration: Ensures that NetworkManager is set to manage interfaces previously managed by ```ifupdown```.
 * Disable Cloud-Init Network Configuration: Disables any cloud-init network configuration to avoid conflicts.
 
 ***Configure Network Interface***
-* Uses nmcli and ip commands to assign the static IP and connect the specified network interface.
+* Uses ```nmcli``` and ```ip``` commands to assign the static IP and connect the specified network interface.
 
 Netplan Configuration***
-* Removes existing Netplan files, creates a new configuration (/etc/netplan/00-installer-config.yaml), and writes the static network settings to it (IP address, DNS, gateway, etc.).
+* Removes existing Netplan files, creates a new configuration (```/etc/netplan/00-installer-config.yaml```), and writes the static network settings to it (IP address, DNS, gateway, etc.).
 * Ensures the Netplan configuration is secure by setting appropriate permissions and applying it.
 
 ***Completion and Reboot***
@@ -95,9 +95,6 @@ GPLv3 Licence:  https://www.gnu.org/licenses/gpl-3.0.en.html
 
 ## References
 Linux (Ubuntu 24.04.x) - https://ubuntu.com/download/server<br />
-Apache - https://httpd.apache.org/<br />
-MySQL - https://www.mysql.com/<br />
-phpMyAdmin - https://www.phpmyadmin.net/<br />
-Webmin - https://webmin.com/download/<br />
-VSFTPD - https://wiki.archlinux.org/title/Very_Secure_FTP_Daemon<br />
-OpenSSL - https://openssl-library.org/source/gitrepo/ and https://ubuntu.com/server/docs/openssl<br />
+Network Manager (NMCLI) - https://networkmanager.dev/docs/api/latest/ and https://manpages.ubuntu.com/manpages/focal/man1/nmcli.1.html
+Cloud-init - https://cloud-init.io/
+Netplan - https://ubuntu.com/core/docs/networkmanager/networkmanager-and-netplan
