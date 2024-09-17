@@ -15,9 +15,9 @@ Author:  Neil Jamieson (Valikahn)<br />
 * [Tested Operating Systems](#tested-operating-systems)
 * [Features and Components](#features-and-components)
 * [Install Commands](#install-commands)
-* [Copyright](#copyright)
 * [Bugs & Issues](#bugs--issues)
 * [Licence](#licence)
+* [References](#references)
 
 ## Tested Operating Systems
 * Ubuntu 24.04.x (Noble Numbat)
