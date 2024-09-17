@@ -77,7 +77,7 @@ git clone https://github.com/Valikahn/set_static_ip.git
 
 ## Execute Script
 Change directory -->  Make shell file executable -->  sudo run the script<br />
-Thats it - there is only one interaction required (y/n)
+Thats it - follow the on-screen prompts and you're good to go.
 ```
 cd set_static_ip
 chmod +x maws_h16s35_set_static_ip.linux.deb.sh
