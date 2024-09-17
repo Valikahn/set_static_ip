@@ -13,13 +13,8 @@ File Name: maws_h16s35-v24.9.17.83.linux.deb.sh<br />
 Author:  Neil Jamieson (Valikahn)<br />
 
 * [Tested Operating Systems](#tested-operating-systems)
-* [](#installed-software-module-versions)
-* [](#install-commands)
-* [](#script-process)
-* [](#script-process)
-* [](#script-process)
-* [](#script-process)
-* [](#script-process)
+* [Features and Components](#features-and-components)
+* [Install Commands](#install-commands)
 * [Copyright](#copyright)
 * [Bugs & Issues](#bugs--issues)
 * [Licence](#licence)
@@ -74,7 +69,7 @@ Netplan Configuration***
 This script essentially automates the process of setting up a static IP address and configuring the necessary network settings in a Linux environment that uses NetworkManager.
 
 ## Install Commands
-Install Git and clone the "lamp" package
+Install Git and clone the "set_static_ip" package
 ```
 sudo apt-get -y install wget git
 git clone https://github.com/Valikahn/set_static_ip.git
@@ -84,7 +79,7 @@ git clone https://github.com/Valikahn/set_static_ip.git
 Change directory -->  Make shell file executable -->  sudo run the script<br />
 Thats it - there is only one interaction required (y/n)
 ```
-cd lamp
+cd set_static_ip
 chmod +x maws_h16s35_set_static_ip.linux.deb.sh
 sudo ./maws_h16s35_set_static_ip.linux.deb.sh
 ```
