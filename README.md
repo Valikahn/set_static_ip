@@ -95,6 +95,6 @@ GPLv3 Licence:  https://www.gnu.org/licenses/gpl-3.0.en.html
 
 ## References
 Linux (Ubuntu 24.04.x) - https://ubuntu.com/download/server<br />
-Network Manager (NMCLI) - https://networkmanager.dev/docs/api/latest/ and https://manpages.ubuntu.com/manpages/focal/man1/nmcli.1.html
-Cloud-init - https://cloud-init.io/
-Netplan - https://ubuntu.com/core/docs/networkmanager/networkmanager-and-netplan
+Network Manager (NMCLI) - https://networkmanager.dev/docs/api/latest/ and https://manpages.ubuntu.com/manpages/focal/man1/nmcli.1.html<br />
+Cloud-init - https://cloud-init.io/<br />
+Netplan - https://ubuntu.com/core/docs/networkmanager/networkmanager-and-netplan<br />
