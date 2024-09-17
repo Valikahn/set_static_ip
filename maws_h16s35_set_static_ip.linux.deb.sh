@@ -165,7 +165,7 @@ CONFIRM_YES_NO
 ###--------------------  UPDATE SYSTEM AND INSTALL NETWORK MANAGER  --------------------###
 ##
 echo "${GREEN}[ 1. ] UPDATE SYSTEM AND INSTALL NETWORK MANAGER${NORMAL}"
-apt install network-manager -y > /dev/null 2>&1
+apt install openvswitch-switch network-manager -y > /dev/null 2>&1
 
 ###--------------------  DISABLE SYSTEM NETWORKD SERVICE WAIT WHILE BOOT  --------------------###
 ##
