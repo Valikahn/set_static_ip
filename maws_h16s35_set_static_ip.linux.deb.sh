@@ -214,11 +214,11 @@ nmcli device connect $INTERFACE > /dev/null 2>&1
 
 ENS=$(nmcli dev status | grep '^ens' | awk '{ print $1 }')
 
-nmcli con modify $ENS ipv4.addresses $STATIC_IP/$CIDR
-nmcli con modify $ENS ipv4.gateway $GATEWAY
-nmcli con modify $ENS ipv4.dns $DNS
-nmcli con modify $ENS ipv4.method manual
-sudo nmcli con up $ENS
+nmcli con modify $ENS ipv4.addresses $STATIC_IP/$CIDR > /dev/null 2>&1
+nmcli con modify $ENS ipv4.gateway $GATEWAY > /dev/null 2>&1
+nmcli con modify $ENS ipv4.dns $DNS > /dev/null 2>&1
+nmcli con modify $ENS ipv4.method manual > /dev/null 2>&1
+sudo nmcli con up $ENS > /dev/null 2>&1
 
 ###--------------------  REMOVE NETPLAN FILES AND CREATE A NEW  --------------------###
 ##
@@ -260,8 +260,7 @@ systemctl restart NetworkManager
 echo
 echo "The IP address has been statically set."
 echo "Login with the new IP address: $STATIC_IP and configured port number for SSH."
-sleep 5 #&& sudo reboot
-exit 126
+sleep 5 && sudo reboot
 
 ##
 ###--------------------  END  --------------------###
