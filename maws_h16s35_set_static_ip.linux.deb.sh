@@ -214,7 +214,7 @@ nmcli device connect $INTERFACE > /dev/null 2>&1
 
 ENS=$(nmcli dev status | grep '^ens' | awk '{ print $1 }')
 
-nmcli con modify $ENS ipv4.addresses $CIDR
+nmcli con modify $ENS ipv4.addresses $STATIC_IP/$CIDR
 nmcli con modify $ENS ipv4.gateway $GATEWAY
 nmcli con modify $ENS ipv4.dns $DNS
 nmcli con modify $ENS ipv4.method manual
