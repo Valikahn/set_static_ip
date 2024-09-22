@@ -165,7 +165,8 @@ CONFIRM_YES_NO
 ###--------------------  UPDATE SYSTEM AND INSTALL NETWORK MANAGER  --------------------###
 ##
 echo "${GREEN}[ 1. ] UPDATE SYSTEM AND INSTALL NETWORK MANAGER${NORMAL}"
-apt install openvswitch-switch network-manager -y > /dev/null 2>&1
+apt install -y network-manager > /dev/null 2>&1
+apt install -y openvswitch-switch > /dev/null 2>&1
 
 ###--------------------  DISABLE SYSTEM NETWORKD SERVICE WAIT WHILE BOOT  --------------------###
 ##
@@ -211,6 +212,14 @@ nmcli device set $STATIC_IP managed yes > /dev/null 2>&1
 ip addr add $IP_A_CIDR dev $INTERFACE > /dev/null 2>&1
 nmcli device connect $INTERFACE > /dev/null 2>&1
 
+ENS=$(nmcli dev status | grep '^ens' | awk '{ print $1 }')
+
+nmcli con modify $ENS ipv4.addresses $CIDR
+nmcli con modify $ENS ipv4.gateway $GATEWAY
+nmcli con modify $ENS ipv4.dns $DNS
+nmcli con modify $ENS ipv4.method manual
+sudo nmcli con up $ENS
+
 ###--------------------  REMOVE NETPLAN FILES AND CREATE A NEW  --------------------###
 ##
 echo "${GREEN}[ 8. ] REMOVE NETPLAN FILES AND CREATE A NEW${NORMAL}"
@@ -240,13 +249,6 @@ EOL
 echo "${GREEN}[ 9. ] NETPLAN SECURE AND APPLY${NORMAL}"
 sudo chmod 600 /etc/netplan/00-installer-config.yaml
 sudo netplan apply
-
-ENS=$(nmcli dev status | grep '^ens' | awk '{ print $1 }')
-
-sudo nmcli con modify "$ENS" ipv4.addresses $CIDR
-sudo nmcli con modify "$ENS" ipv4.gateway $GATEWAY
-sudo nmcli con modify "$ENS" ipv4.dns $DNS
-sudo nmcli con modify "$ENS" ipv4.method manual
 
 ###--------------------  EXECUTION COMPLETE  --------------------###
 ##
