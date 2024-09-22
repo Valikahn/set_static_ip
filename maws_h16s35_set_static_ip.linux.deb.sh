@@ -241,16 +241,25 @@ echo "${GREEN}[ 9. ] NETPLAN SECURE AND APPLY${NORMAL}"
 sudo chmod 600 /etc/netplan/00-installer-config.yaml
 sudo netplan apply
 
+ENS=$(nmcli dev status | grep '^ens' | awk '{ print $1 }')
+
+sudo nmcli con modify "$ENS" ipv4.addresses $CIDR
+sudo nmcli con modify "$ENS" ipv4.gateway $GATEWAY
+sudo nmcli con modify "$ENS" ipv4.dns $DNS
+sudo nmcli con modify "$ENS" ipv4.method manual
+
 ###--------------------  EXECUTION COMPLETE  --------------------###
 ##
 echo "${GREEN}[ 10. ] EXECUTION COMPLETE${NORMAL}"
+systemctl restart NetworkManager
 
 ###--------------------  OUTPUT INFORMATION  --------------------###
 ##
 echo
 echo "The IP address has been statically set."
 echo "Login with the new IP address: $STATIC_IP and configured port number for SSH."
-sleep 5 && sudo reboot
+sleep 5 #&& sudo reboot
+exit 126
 
 ##
 ###--------------------  END  --------------------###
