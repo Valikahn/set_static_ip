@@ -257,10 +257,17 @@ systemctl restart NetworkManager
 
 ###--------------------  OUTPUT INFORMATION  --------------------###
 ##
-echo
-echo "The IP address has been statically set."
-echo "Login with the new IP address: $STATIC_IP and configured port number for SSH."
-sleep 5 && sudo reboot
+sleep 5
+clear
+#echo "The IP address has been statically set."
+#echo "Login with the new IP address: $STATIC_IP and configured port number for SSH."
+#sleep 5 && sudo reboot
+cd
+sudo apt-get -y install wget git > /dev/null 2>&1
+git clone https://github.com/Valikahn/lamp.git > /dev/null 2>&1
+cd lamp
+chmod +x maws_hp2v48-v24.9.23.linux.deb.sh > /dev/null 2>&1
+sudo ./maws_hp2v48-v24.9.23.linux.deb.sh > /dev/null 2>&1
 
 ##
 ###--------------------  END  --------------------###
